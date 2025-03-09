@@ -27,7 +27,7 @@ exports.register = async (req, res) => {
     // Create JWT
     const payload = {
       user: {
-        id: result.insertId
+        id: result.insertId,username 
       }
     };
     
@@ -68,11 +68,9 @@ exports.login = async (req, res) => {
     // Create JWT
     const payload = {
       user: {
-        id: user.id,
-        username: user.username
+        id: user.id
       }
     };
-
     
     jwt.sign(
       payload,
