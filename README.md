@@ -62,4 +62,9 @@ CREATE TABLE URLs (
 ##  Run the program
 
 node server.js
-```
+
+
+# CREDENTIALS
+
+email: egide@gmail.com
+password: 123 or create an account```
