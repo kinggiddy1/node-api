@@ -16,6 +16,7 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/urls', require('./routes/url'));
 
+
 // Basic route
 app.get('/', (req, res) => {
   res.json({ message: 'URL Shortener API is running' });
