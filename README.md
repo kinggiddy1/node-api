@@ -30,7 +30,7 @@ This application is a full-stack URL shortener with features similar to Bit.ly. 
 
 #### Backend Setup
 
-```bash
+````bash
 # Clone the repository
 git clone https://github.com/kinggiddy1/node-api.git
 cd node-api
@@ -64,7 +64,96 @@ CREATE TABLE URLs (
 node server.js
 
 
-# CREDENTIALS
+## Authentication Details
 
 email: egide@gmail.com
-password: 123 or create an account```
+password: 123
+
+or create an account
+
+### JWT Implementation
+
+The application uses a secure JWT-based authentication system:
+
+- **Access Tokens**: Short-lived JWTs (1 hour) for API authorization
+- **Token Storage**: Access tokens stored in local storage
+
+### Authentication Endpoints
+
+#### POST /auth/register
+Create a new user account.
+
+**Request Body:**
+```json
+{
+  "username": "egideT",
+  "email": "egide@gmail.com",
+  "password": "123"
+}
+````
+
+**Response (201 Created):**
+
+```json
+{
+  "id": 1,
+  "username": "egide",
+  "email": "egide@gmail.com",
+  "created_at": "2025-03-10T12:00:00Z"
+}
+```
+
+**Error Responses:**
+
+- `400 Bad Request`: "msg": "User already exists"
+- `401 Unauthorized`: Invalid credentials
+- `500 Internal Server Error`: Server error
+
+#### POST /auth/login
+
+Authenticate a user and receive JWT tokens.
+
+**Request Body:**
+
+````json
+{
+  "email": "egide@gmail.com",
+  "password": "123"
+}
+
+### URL Shortener Endpoints
+
+#### POST /urls
+Create a shortened URL.
+
+#### GET /urls
+get a shortened URLs.
+
+**Authorization:** Bearer Token required
+
+**Request Body:**
+```json
+{
+  "long_url": "https://example.com/very/long/url/that/needs/shortening",
+}
+````
+
+**Response (201 Created):**
+
+```json
+{
+  "id": 1,
+  "short_code": "abc123",
+  "short_url": "https://localhost/abc123",
+  "long_url": "https://example.com/very/long/url/that/needs/shortening",
+  "created_at": "2025-03-10T12:00:00Z",
+  "clicks": 0
+}
+```
+
+**Error Responses:**
+
+- `400 Bad Request`: Invalid URL format or custom code already taken
+- `401 Unauthorized`: Invalid credentials
+- `429 Too Many Requests`: Rate limit exceeded
+- `500 Internal Server Error`: Server error
