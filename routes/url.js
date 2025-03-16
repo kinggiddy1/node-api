@@ -4,13 +4,13 @@ const { createShortUrl, getUserUrls, getUrlById, deleteUrl } = require('../contr
 const auth = require('../middleware/auth');
 
 // Create a short URL
-router.post('/', auth, createShortUrl);
+router.post('/shorten', auth, createShortUrl);
 
 // Get all URLs for a user
-router.get('/', auth, getUserUrls);
+router.get('/urls', auth, getUserUrls);
 
 // Get specific URL by ID
-router.get('/:id', auth, getUrlById);
+router.get('/analytics/:shortUrl', auth, getUrlById);   
 
 // Delete a URL
 router.delete('/:id', auth, deleteUrl);

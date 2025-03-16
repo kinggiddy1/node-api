@@ -65,7 +65,7 @@ exports.getUserUrls = async (req, res) => {
 exports.getUrlById = async (req, res) => {
   try {
     const [rows] = await pool.query('SELECT * FROM URLs WHERE id = ? AND user_id = ?', 
-      [req.params.id, req.user.id]);
+      [req.params.shortUrl, req.user.id]);
     
     if (rows.length === 0) {
       return res.status(404).json({ msg: 'URL not found or unauthorized' });

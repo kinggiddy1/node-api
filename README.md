@@ -128,11 +128,14 @@ Authenticate a user and receive JWT tokens.
 
 ### URL Shortener Endpoints
 
-#### POST /urls
+#### POST /shorten
 Create a shortened URL.
 
 #### GET /urls
 get a shortened URLs.
+
+#### GET /analytics/:shortUrl 
+get a shortened URLs by ID.
 
 **Authorization:** Bearer Token required
 
