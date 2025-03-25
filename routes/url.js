@@ -15,4 +15,4 @@ router.get('/analytics/:shortUrl', auth, getUrlById);
 // Delete a URL
 router.delete('/:id', auth, deleteUrl);
 
-module.exports = router;
+module.exports = router; 
