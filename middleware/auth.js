@@ -16,6 +16,6 @@ module.exports = function (req, res, next) {
     req.user = decoded.user; // Attach user info to request
     next();
   } catch (err) {
-    res.status(401).json({ msg: 'Invalid token' });
+    res.status(401).json({ msg: 'Session Expired, Login again !' });
   }
 };
