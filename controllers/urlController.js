@@ -21,7 +21,7 @@ exports.createShortUrl = async (req, res) => {
         isUnique = true;
       }
     }
-     
+    
     // Insert the URL
     const [result] = await pool.query(
       'INSERT INTO URLs (user_id, short_code, long_url) VALUES (?, ?, ?)',
