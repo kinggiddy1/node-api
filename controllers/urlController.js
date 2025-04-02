@@ -48,7 +48,7 @@ exports.createShortUrl = async (req, res) => {
     res.status(500).send('Server error');
   }
 };
-  
+   
 
 // Get all URLs for a user
 exports.getUserUrls = async (req, res) => {
