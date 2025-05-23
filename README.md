@@ -21,7 +21,7 @@ This application is a full-stack URL shortener with features similar to Bit.ly. 
 - URL shortening capabilities
 - Analytics for shortened URLs
 - User-specific URL management
-- Modern, responsive UI
+- Modern, responsive UI 
 
 ## Setup Instructions
 
